@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?attr/colorSurface"
+    tools:context=".DataFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Новинки в игровой индустрии"
+        android:textSize="20sp"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Смута"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/smuta"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="«Сму́та» — компьютерная игра в жанре action/RPG от третьего лица, разработанная российской игровой студией Cyberia Nova. Выход игры состоялся 4 апреля 2024 года."
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Final Fantasy 7 Rebirth"
+        android:textColor="?attr/colorOnSurface"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/final_fantasy"
+        android:scaleType="centerCrop"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Компьютерная игра в жанре ролевого экшена, разработанная и изданная японской компанией Square Enix эксклюзивно для платформы PlayStation 5 в 2024 году. Это вторая часть запланированной трилогии ремейка культовой игры Final Fantasy VII (1997) для PlayStation, а также прямое продолжение Final Fantasy VII Remake (2020), которое входит в медиафраншизу Компиляция Final Fantasy VII"
+        android:textColor="?attr/colorOnSurface"
+        android:layout_marginBottom="16dp"/>
+
+
+</LinearLayout>
