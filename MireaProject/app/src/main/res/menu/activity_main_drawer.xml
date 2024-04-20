@@ -12,5 +12,9 @@
             android:id="@+id/webViewFragment"
             android:icon="@drawable/microsoft_edge"
             android:title="@string/webViewFragment" />
+        <item
+            android:id="@+id/notificationFragment"
+            android:icon="@drawable/bell"
+            android:title="Notifications" />
     </group>
 </menu>
