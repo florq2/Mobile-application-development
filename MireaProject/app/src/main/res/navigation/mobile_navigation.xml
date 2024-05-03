@@ -37,4 +37,19 @@
         android:name="ru.mirea.venikovea.mireaproject.NotificationFragment"
         android:label="fragment_notification"
         tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/compassFragment"
+        android:name="ru.mirea.venikovea.mireaproject.CompassFragment"
+        android:label="fragment_compas"
+        tools:layout="@layout/fragment_compass" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="ru.mirea.venikovea.mireaproject.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/microphoneFragment"
+        android:name="ru.mirea.venikovea.mireaproject.MicrophoneFragment"
+        android:label="fragment_microphone"
+        tools:layout="@layout/fragment_microphone" />
 </navigation>

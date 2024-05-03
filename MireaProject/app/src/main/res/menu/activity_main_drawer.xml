@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/profileFragment"
+            android:icon="@drawable/user"
+            android:title="Profile" />
+        <item
             android:id="@+id/dataFragment"
             android:icon="@drawable/smuta"
             android:title="@string/dataFragment" />
@@ -16,5 +20,13 @@
             android:id="@+id/notificationFragment"
             android:icon="@drawable/bell"
             android:title="Notifications" />
+        <item
+            android:id="@+id/compassFragment"
+            android:icon="@drawable/navigation"
+            android:title="Compass" />
+        <item
+            android:id="@+id/microphoneFragment"
+            android:icon="@drawable/circle_microphone"
+            android:title="Dictaphone" />
     </group>
 </menu>
