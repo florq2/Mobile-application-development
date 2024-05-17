@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -36,13 +37,19 @@ public class ProfileFragment extends Fragment {
     private static final int CAMERA_REQUEST = 0;
     private boolean isWork = false;
     private Uri imageUri;
-    private OnProfilePhotoSavedListener listener;
+    private OnProfilePhotoSavedListener photoListener;
+    private OnProfileNameSavedListener nameListener;
+    private SharedPreferences sharedPreferences;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
+
+        sharedPreferences = getActivity().getSharedPreferences("userData", Context.MODE_PRIVATE);
+
+        loadUserData();
 
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             isWork = true;
@@ -71,6 +78,8 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        binding.saveUserDataButton.setOnClickListener(v -> saveUserData());
+
         return rootView;
     }
 
@@ -92,6 +101,8 @@ public class ProfileFragment extends Fragment {
 
             binding.profileImageView.setImageURI(imageUri);
         }
+
+        loadUserData();
     }
 
 
@@ -110,7 +121,7 @@ public class ProfileFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             binding.profileImageView.setImageURI(imageUri);
-            listener.onProfilePhotoSaved();
+            photoListener.onProfilePhotoSaved();
         }
     }
 
@@ -142,11 +153,29 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof OnProfilePhotoSavedListener) {
-            listener = (OnProfilePhotoSavedListener) context;
+        if (context instanceof OnProfilePhotoSavedListener && context instanceof OnProfileNameSavedListener) {
+            photoListener = (OnProfilePhotoSavedListener) context;
+            nameListener = (OnProfileNameSavedListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnProfilePhotoSavedListener");
         }
+    }
+
+    private void loadUserData() {
+        String name = sharedPreferences.getString("userName", "");
+        String about = sharedPreferences.getString("aboutUser", "");
+
+        binding.userNameEditText.setText(name);
+        binding.aboutMeEditText.setText(about);
+    }
+
+    private void saveUserData() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString("userName", binding.userNameEditText.getText().toString());
+        editor.putString("aboutUser", binding.aboutMeEditText.getText().toString());
+
+        editor.apply();
     }
 }

@@ -1,11 +1,14 @@
 package ru.mirea.venikovea.mireaproject;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -23,11 +26,12 @@ import java.io.FilenameFilter;
 
 import ru.mirea.venikovea.mireaproject.databinding.ActivityMainBinding;
 
-public class MainActivity extends AppCompatActivity implements OnProfilePhotoSavedListener{
+public class MainActivity extends AppCompatActivity implements OnProfilePhotoSavedListener, OnProfileNameSavedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private Uri profilePhotoUri;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +44,24 @@ public class MainActivity extends AppCompatActivity implements OnProfilePhotoSav
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.dataFragment, R.id.webViewFragment, R.id.notificationFragment, R.id.compassFragment, R.id.profileFragment, R.id.microphoneFragment)
+                R.id.dataFragment, R.id.webViewFragment, R.id.notificationFragment, R.id.compassFragment, R.id.profileFragment, R.id.microphoneFragment, R.id.fileOperations)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        sharedPreferences = getSharedPreferences("userData", Context.MODE_PRIVATE);
+
         loadProfilePhoto();
+
+        loadUserName();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -91,6 +97,21 @@ public class MainActivity extends AppCompatActivity implements OnProfilePhotoSav
     @Override
     public void onProfilePhotoSaved() {
         loadProfilePhoto();
+    }
+
+    @Override
+    public void onProfileNameSaved() {
+        loadUserName();
+    }
+
+    private void loadUserName() {
+        String name = sharedPreferences.getString("userName", "");
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+
+        TextView userName = headerView.findViewById(R.id.userNameNavTextView);
+        userName.setText(name);
     }
 }
 

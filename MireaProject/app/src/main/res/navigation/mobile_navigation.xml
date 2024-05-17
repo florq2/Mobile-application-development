@@ -52,4 +52,9 @@
         android:name="ru.mirea.venikovea.mireaproject.MicrophoneFragment"
         android:label="fragment_microphone"
         tools:layout="@layout/fragment_microphone" />
+    <fragment
+        android:id="@+id/fileOperations"
+        android:name="ru.mirea.venikovea.mireaproject.FileOperations"
+        android:label="fragment_file_operations"
+        tools:layout="@layout/fragment_file_operations" />
 </navigation>

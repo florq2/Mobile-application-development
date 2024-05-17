@@ -28,5 +28,9 @@
             android:id="@+id/microphoneFragment"
             android:icon="@drawable/circle_microphone"
             android:title="Dictaphone" />
+        <item
+            android:id="@+id/fileOperations"
+            android:icon="@drawable/folder_open"
+            android:title="File operations" />
     </group>
 </menu>
