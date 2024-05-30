@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity implements OnProfilePhotoSav
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.dataFragment, R.id.webViewFragment, R.id.notificationFragment, R.id.compassFragment, R.id.profileFragment, R.id.microphoneFragment, R.id.fileOperations)
+                R.id.dataFragment, R.id.webViewFragment, R.id.notificationFragment,
+                R.id.compassFragment, R.id.profileFragment, R.id.microphoneFragment,
+                R.id.fileOperations, R.id.weatherFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements OnProfilePhotoSav
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 

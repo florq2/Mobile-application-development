@@ -57,4 +57,9 @@
         android:name="ru.mirea.venikovea.mireaproject.FileOperations"
         android:label="fragment_file_operations"
         tools:layout="@layout/fragment_file_operations" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="ru.mirea.venikovea.mireaproject.WeatherFragment"
+        android:label="fragment_weather"
+        tools:layout="@layout/fragment_weather" />
 </navigation>
