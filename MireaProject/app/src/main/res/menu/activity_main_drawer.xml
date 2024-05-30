@@ -32,5 +32,9 @@
             android:id="@+id/fileOperations"
             android:icon="@drawable/folder_open"
             android:title="File operations" />
+        <item
+            android:id="@+id/weatherFragment"
+            android:icon="@drawable/clouds_sun"
+            android:title="Weather Info" />
     </group>
 </menu>

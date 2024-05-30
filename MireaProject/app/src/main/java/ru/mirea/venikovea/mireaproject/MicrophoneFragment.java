@@ -22,7 +22,6 @@ public class MicrophoneFragment extends Fragment {
 
     private MediaRecorder mediaRecorder;
     private boolean isRecording = false;
-
     private Button startButton;
     private Button stopButton;
 
