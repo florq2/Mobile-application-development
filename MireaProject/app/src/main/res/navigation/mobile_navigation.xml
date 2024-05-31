@@ -62,4 +62,9 @@
         android:name="ru.mirea.venikovea.mireaproject.WeatherFragment"
         android:label="fragment_weather"
         tools:layout="@layout/fragment_weather" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="ru.mirea.venikovea.mireaproject.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
 </navigation>

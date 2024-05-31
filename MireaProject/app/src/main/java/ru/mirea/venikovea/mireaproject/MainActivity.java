@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements OnProfilePhotoSav
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.dataFragment, R.id.webViewFragment, R.id.notificationFragment,
                 R.id.compassFragment, R.id.profileFragment, R.id.microphoneFragment,
-                R.id.fileOperations, R.id.weatherFragment)
+                R.id.fileOperations, R.id.weatherFragment, R.id.mapFragment)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
