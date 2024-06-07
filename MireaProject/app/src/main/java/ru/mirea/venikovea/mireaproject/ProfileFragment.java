@@ -177,5 +177,6 @@ public class ProfileFragment extends Fragment {
         editor.putString("aboutUser", binding.aboutMeEditText.getText().toString());
 
         editor.apply();
+        nameListener.onProfileNameSaved();
     }
 }

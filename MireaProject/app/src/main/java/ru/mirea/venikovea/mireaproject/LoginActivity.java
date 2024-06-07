@@ -59,9 +59,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        String email = currentUser.getEmail();
-        if (!email.isEmpty()) {
-            emailEditText.setText(email);
+        if (currentUser != null) {
+            String email = currentUser.getEmail();
+            if (email != null && !email.isEmpty()) {
+                emailEditText.setText(email);
+            }
         }
     }
 
